@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Happy Birthday, Shristi! 🎂</title>
+  <meta name="description" content="A little corner of the internet made to celebrate Shristi's birthday. Open your card, make a wish, and celebrate!">
+  <meta name="theme-color" content="#1b1034">
+  <meta property="og:title" content="Happy Birthday, Shristi!">
+  <meta property="og:description" content="A little celebration made just for you.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Pinyon+Script&family=Fraunces:opsz,wght@9..144,500;9..144,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <canvas id="confetti" aria-hidden="true"></canvas>
+  <div class="ambient" aria-hidden="true">
+    <span class="glow glow-one"></span>
+    <span class="glow glow-two"></span>
+    <span class="glow glow-three"></span>
+  </div>
+
+  <header class="site-header">
+    <a class="brand" href="#top"><span aria-hidden="true">✦</span> For Shristi</a>
+    <nav class="nav" aria-label="Main navigation">
+      <a href="#reasons">Why you</a>
+      <a href="#card">Your card</a>
+      <a href="#cake">Make a wish</a>
+    </nav>
+    <button class="music-button" id="music-toggle" type="button" aria-pressed="false">
+      <span class="music-icon" aria-hidden="true">♫</span>
+      <span class="music-label">Play music</span>
+    </button>
+  </header>
+
+  <main>
+    <section class="hero" id="top">
+      <div class="balloons" aria-hidden="true">
+        <span class="balloon balloon-one"><i></i></span>
+        <span class="balloon balloon-two"><i></i></span>
+        <span class="balloon balloon-three"><i></i></span>
+        <span class="balloon balloon-four"><i></i></span>
+      </div>
+      <div class="sparkles" id="sparkles" aria-hidden="true"></div>
+
+      <div class="hero-content">
+        <p class="eyebrow reveal">✦ &nbsp; A birthday surprise, just for you &nbsp; ✦</p>
+        <h1 class="reveal">
+          <span class="hero-happy">Happy Birthday,</span>
+          <span class="hero-name">Shristi!</span>
+        </h1>
+        <p class="hero-copy reveal">
+          Today we celebrate the person who makes everything a little brighter.
+          Here's a tiny corner of the internet, made with a whole lot of love, just for you.
+        </p>
+        <div class="hero-actions reveal">
+          <a class="button button-primary" href="#card">Open your card <span aria-hidden="true">💌</span></a>
+          <a class="button button-ghost" href="#cake">Make a wish <span aria-hidden="true">🕯️</span></a>
+        </div>
+        <p class="hero-footnote reveal">made with love · zero boring bits</p>
+      </div>
+
+      <a class="scroll-cue" href="#reasons" aria-label="Scroll to continue">
+        <span>scroll for the good stuff</span>
+        <span class="scroll-line" aria-hidden="true"></span>
+      </a>
+    </section>
+
+    <section class="section reasons" id="reasons">
+      <div class="section-heading reveal">
+        <p class="kicker">The good stuff</p>
+        <h2>A few things we <em>love</em> about you</h2>
+        <p class="section-subtitle">Consider this your official reminder.</p>
+      </div>
+
+      <div class="reason-grid">
+        <article class="reason-card reveal">
+          <span class="reason-icon" aria-hidden="true">✿</span>
+          <h3>That smile</h3>
+          <p>The kind that walks into a room before you do and makes everyone feel at home.</p>
+        </article>
+        <article class="reason-card reveal">
+          <span class="reason-icon" aria-hidden="true">♡</span>
+          <h3>Your big heart</h3>
+          <p>Always the first to care, to help, to cheer someone on. The world needs more of this.</p>
+        </article>
+        <article class="reason-card reveal">
+          <span class="reason-icon" aria-hidden="true">✧</span>
+          <h3>Main-character energy</h3>
+          <p>You have a way of turning ordinary days into stories worth telling.</p>
+        </article>
+        <article class="reason-card reveal">
+          <span class="reason-icon" aria-hidden="true">☀</span>
+          <h3>Your kind of magic</h3>
+          <p>Equal parts warmth, wit, and wonderful. Honestly, it's very hard not to adore you.</p>
+        </article>
+      </div>
+
+      <div class="compliment reveal">
+        <p class="compliment-label">Need a little boost?</p>
+        <p class="compliment-text" id="compliment-text" aria-live="polite">Tap the button. Trust us.</p>
+        <button class="button button-small" id="compliment-button" type="button">Give me a compliment <span aria-hidden="true">✨</span></button>
+      </div>
+    </section>
+
+    <section class="section card-section" id="card">
+      <div class="section-heading reveal">
+        <p class="kicker">Made for you</p>
+        <h2>A little note, just for you</h2>
+        <p class="section-subtitle">Go on, open it. It won't bite. Much.</p>
+      </div>
+
+      <div class="card-stage reveal">
+        <button class="envelope" id="envelope" type="button" aria-expanded="false" aria-controls="letter">
+          <span class="envelope-back" aria-hidden="true"></span>
+          <span class="letter" id="letter">
+            <span class="letter-inner">
+              <span class="letter-title">Dear Shristi,</span>
+              <span class="letter-body">
+                Happy birthday! If life has been moving a little too fast lately, I hope today
+                gives you a quiet moment to feel how truly special you are. You make the people
+                around you luckier and ordinary days a whole lot brighter.
+              </span>
+              <span class="letter-body">
+                May this year bring you more laughter, more adventures, and more of the things
+                that make your heart sing. You deserve every good thing coming your way.
+              </span>
+              <span class="letter-signoff">With love, always <span aria-hidden="true">💛</span></span>
+            </span>
+          </span>
+          <span class="envelope-front" aria-hidden="true">
+            <span class="envelope-flap"></span>
+            <span class="envelope-seal">✦</span>
+            <span class="envelope-hint">tap to open</span>
+          </span>
+        </button>
+      </div>
+    </section>
+
+    <section class="section cake-section" id="cake">
+      <div class="section-heading reveal">
+        <p class="kicker">The best part</p>
+        <h2>Make a wish &amp; blow out the candles</h2>
+        <p class="section-subtitle">Tap each flame. We'll handle the magic.</p>
+      </div>
+
+      <div class="cake-scene reveal">
+        <div class="cake-wrap">
+          <svg class="cake" viewBox="0 0 420 340" role="img" aria-label="A two-tier birthday cake with five candles">
+            <defs>
+              <linearGradient id="topFrost" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#fff4fb"/>
+                <stop offset="1" stop-color="#ffd6ec"/>
+              </linearGradient>
+              <linearGradient id="bottomCake" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#ffd1e6"/>
+                <stop offset="1" stop-color="#f7a5c8"/>
+              </linearGradient>
+              <linearGradient id="upperCake" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#ffe3f0"/>
+                <stop offset="1" stop-color="#ffbad7"/>
+              </linearGradient>
+              <radialGradient id="flameGlow">
+                <stop offset="0" stop-color="#fff7c2" stop-opacity=".9"/>
+                <stop offset="1" stop-color="#ffb63d" stop-opacity="0"/>
+              </radialGradient>
+            </defs>
+
+            <ellipse cx="210" cy="316" rx="148" ry="13" fill="#0d0620" opacity=".38"/>
+
+            <!-- bottom tier -->
+            <path d="M74 216h272v66c0 12-10 22-22 22H96c-12 0-22-10-22-22z" fill="url(#bottomCake)"/>
+            <path d="M74 216h272v14c0 8-7 14-15 14-9 0-15-7-15-15 0 9-7 15-16 15s-16-6-16-15c0 9-7 15-16 15s-16-6-16-15c0 9-7 15-16 15s-16-6-16-15c0 9-7 15-16 15s-16-6-16-15c0 9-7 15-16 15s-16-6-16-15c0 9-7 15-16 15s-16-6-16-15c0 8-6 15-15 15s-15-6-15-14z" fill="url(#topFrost)"/>
+            <path d="M74 236h272" stroke="#fff3fb" stroke-width="4" opacity=".6"/>
+
+            <!-- top tier -->
+            <path d="M129 128h162v66c0 9-7 16-16 16H145c-9 0-16-7-16-16z" fill="url(#upperCake)"/>
+            <path d="M129 128h162v12c0 7-6 12-13 12-7 0-13-6-13-13 0 8-6 13-13 13s-13-5-13-13c0 8-6 13-13 13s-13-5-13-13c0 8-6 13-13 13s-13-5-13-13c0 8-6 13-13 13s-13-5-13-13c0 8-6 13-13 13s-13-5-13-13c0 7-6 13-13 13s-13-5-13-12z" fill="url(#topFrost)"/>
+
+            <!-- sprinkles -->
+            <g class="sprinkles" stroke-linecap="round" stroke-width="4">
+              <path d="M112 267l7-5M160 281l5 6M215 270l8 2M268 284l-4 6M320 266l7-4M145 259l6-5M240 287l6-4" stroke="#ff6fa8"/>
+              <path d="M95 286l7 3M184 268l5-6M294 273l-5 6M340 288l6-3M202 291l5 5" stroke="#ffd166"/>
+              <path d="M155 164l6-5M198 176l6 3M250 163l5-5M285 175l6 3M175 187l5 4M240 186l5-4" stroke="#ff6fa8"/>
+              <path d="M143 178l6 3M220 165l5-5M267 187l6-4M304 165l6 4" stroke="#8fd8ff"/>
+            </g>
+
+            <!-- candles -->
+            <g class="candle" data-candle="0" role="button" tabindex="0" aria-label="Blow out candle 1">
+              <rect x="151" y="88" width="9" height="44" rx="4" fill="#ff6fae"/>
+              <path class="stripe" d="M151 100h9M151 114h9M151 128h9" stroke="#fff3fb" stroke-width="4"/>
+              <path class="wick" d="M155.5 88v-7" stroke="#503052" stroke-width="2"/>
+              <g class="flame">
+                <circle cx="155.5" cy="72" r="17" fill="url(#flameGlow)"/>
+                <path d="M155.5 58c7 7 9 12 9 17a9 9 0 0 1-18 0c0-5 2-10 9-17z" fill="#ffb63d"/>
+                <path d="M155.5 66c3 4 4 6 4 9a4 4 0 0 1-8 0c0-3 1-5 4-9z" fill="#fff2a8"/>
+              </g>
+              <g class="smoke"><path d="M155.5 80c-7-8 7-12 0-21" fill="none" stroke="#e6d9ef" stroke-width="3" stroke-linecap="round"/></g>
+            </g>
+            <g class="candle" data-candle="1" role="button" tabindex="0" aria-label="Blow out candle 2">
+              <rect x="181" y="88" width="9" height="44" rx="4" fill="#ffc861"/>
+              <path class="stripe" d="M181 100h9M181 114h9M181 128h9" stroke="#fff3fb" stroke-width="4"/>
+              <path class="wick" d="M185.5 88v-7" stroke="#503052" stroke-width="2"/>
+              <g class="flame">
+                <circle cx="185.5" cy="72" r="17" fill="url(#flameGlow)"/>
+                <path d="M185.5 58c7 7 9 12 9 17a9 9 0 0 1-18 0c0-5 2-10 9-17z" fill="#ffb63d"/>
+                <path d="M185.5 66c3 4 4 6 4 9a4 4 0 0 1-8 0c0-3 1-5 4-9z" fill="#fff2a8"/>
+              </g>
+              <g class="smoke"><path d="M185.5 80c-7-8 7-12 0-21" fill="none" stroke="#e6d9ef" stroke-width="3" stroke-linecap="round"/></g>
+            </g>
+            <g class="candle" data-candle="2" role="button" tabindex="0" aria-label="Blow out candle 3">
+              <rect x="211" y="88" width="9" height="44" rx="4" fill="#9bd8ff"/>
+              <path class="stripe" d="M211 100h9M211 114h9M211 128h9" stroke="#fff3fb" stroke-width="4"/>
+              <path class="wick" d="M215.5 88v-7" stroke="#503052" stroke-width="2"/>
+              <g class="flame">
+                <circle cx="215.5" cy="72" r="17" fill="url(#flameGlow)"/>
+                <path d="M215.5 58c7 7 9 12 9 17a9 9 0 0 1-18 0c0-5 2-10 9-17z" fill="#ffb63d"/>
+                <path d="M215.5 66c3 4 4 6 4 9a4 4 0 0 1-8 0c0-3 1-5 4-9z" fill="#fff2a8"/>
+              </g>
+              <g class="smoke"><path d="M215.5 80c-7-8 7-12 0-21" fill="none" stroke="#e6d9ef" stroke-width="3" stroke-linecap="round"/></g>
+            </g>
+            <g class="candle" data-candle="3" role="button" tabindex="0" aria-label="Blow out candle 4">
+              <rect x="241" y="88" width="9" height="44" rx="4" fill="#c3a4ff"/>
+              <path class="stripe" d="M241 100h9M241 114h9M241 128h9" stroke="#fff3fb" stroke-width="4"/>
+              <path class="wick" d="M245.5 88v-7" stroke="#503052" stroke-width="2"/>
+              <g class="flame">
+                <circle cx="245.5" cy="72" r="17" fill="url(#flameGlow)"/>
+                <path d="M245.5 58c7 7 9 12 9 17a9 9 0 0 1-18 0c0-5 2-10 9-17z" fill="#ffb63d"/>
+                <path d="M245.5 66c3 4 4 6 4 9a4 4 0 0 1-8 0c0-3 1-5 4-9z" fill="#fff2a8"/>
+              </g>
+              <g class="smoke"><path d="M245.5 80c-7-8 7-12 0-21" fill="none" stroke="#e6d9ef" stroke-width="3" stroke-linecap="round"/></g>
+            </g>
+            <g class="candle" data-candle="4" role="button" tabindex="0" aria-label="Blow out candle 5">
+              <rect x="271" y="88" width="9" height="44" rx="4" fill="#ff8fa3"/>
+              <path class="stripe" d="M271 100h9M271 114h9M271 128h9" stroke="#fff3fb" stroke-width="4"/>
+              <path class="wick" d="M275.5 88v-7" stroke="#503052" stroke-width="2"/>
+              <g class="flame">
+                <circle cx="275.5" cy="72" r="17" fill="url(#flameGlow)"/>
+                <path d="M275.5 58c7 7 9 12 9 17a9 9 0 0 1-18 0c0-5 2-10 9-17z" fill="#ffb63d"/>
+                <path d="M275.5 66c3 4 4 6 4 9a4 4 0 0 1-8 0c0-3 1-5 4-9z" fill="#fff2a8"/>
+              </g>
+              <g class="smoke"><path d="M275.5 80c-7-8 7-12 0-21" fill="none" stroke="#e6d9ef" stroke-width="3" stroke-linecap="round"/></g>
+            </g>
+          </svg>
+        </div>
+
+        <div class="wish-panel">
+          <p class="wish-count" id="wish-count" aria-live="polite">5 candles waiting</p>
+          <h3 id="wish-title">What's your wish?</h3>
+          <p class="wish-copy" id="wish-copy">Close your eyes, think of something wonderful, then tap a flame to blow it out.</p>
+          <button class="button button-small button-ghost" id="reset-candles" type="button">Light them again <span aria-hidden="true">🔥</span></button>
+        </div>
+      </div>
+
+      <div class="wish-reveal" id="wish-reveal" role="status" hidden>
+        <span class="wish-reveal-icon" aria-hidden="true">✨</span>
+        <p>Wish granted! Here's to a year that feels every bit as wonderful as you are.</p>
+      </div>
+    </section>
+
+    <section class="finale">
+      <div class="finale-inner reveal">
+        <span class="finale-star" aria-hidden="true">✦</span>
+        <h2>Here's to you, <em>Shristi.</em></h2>
+        <p>May your birthday be sweet, your year be kind, and your heart be full.</p>
+        <button class="button button-primary" id="celebrate-button" type="button">Celebrate again <span aria-hidden="true">🎉</span></button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Made with love for Shristi's birthday <span aria-hidden="true">♥</span></p>
+    <p class="footer-small">A little reminder that you're pretty great.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
