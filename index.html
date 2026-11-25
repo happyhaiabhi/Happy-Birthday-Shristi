@@ -20,35 +20,45 @@
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
+  html, body { height: 100%; }
+
   body {
     font-family: 'Quicksand', sans-serif;
     background: linear-gradient(135deg, var(--soft-cream) 0%, #F0E6FF 50%, var(--soft-cream) 100%);
     min-height: 100vh;
+    min-height: 100svh;
     color: var(--text-primary);
     overflow-x: hidden;
   }
 
-  .page { display: none; min-height: 100vh; position: relative; }
+  /* Hidden background-audio element must not add inline height to the page */
+  #bg-music { display: none; }
+
+  .page { display: none; min-height: 100vh; min-height: 100svh; position: relative; }
   .page.active { display: block; }
 
   #page-home {
     background: #1a1a1a;
     padding: calc(12px + env(safe-area-inset-top)) 16px calc(12px + env(safe-area-inset-bottom));
     min-height: 100vh;
-    min-height: 100dvh;
+    min-height: 100svh;
     box-sizing: border-box;
     position: relative;
     overflow: hidden;
   }
 
-  /* Full-screen mobile layout: fills the whole device page */
+  /* Full-screen mobile layout: fills the whole device page.
+     Use min-height (not a fixed height) so the page always matches the
+     viewport exactly — a fixed 100dvh/100vh height next to a 100vh
+     min-height on body leaves a blank strip at the bottom on mobile,
+     and clips the buttons when content is taller than the screen. */
   #page-home.active {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
-    height: 100vh;
-    height: 100dvh;
+    min-height: 100vh;
+    min-height: 100svh;
   }
 
   /* Photo Collage Background */
@@ -406,6 +416,8 @@
     pointer-events: none;
     overflow: hidden;
     z-index: 5;
+    flex-shrink: 1;
+    min-height: 0;
   }
 
   .flower {
@@ -426,6 +438,8 @@
     margin: 0 auto;
     position: relative;
     z-index: 10;
+    flex-shrink: 1;
+    min-height: 0;
   }
 
   .birthday-card {
@@ -503,6 +517,8 @@
     animation: slideUp 0.8s ease-out 1.6s both;
     position: relative;
     z-index: 10;
+    flex-shrink: 1;
+    min-height: 0;
   }
 
   @keyframes slideUp {
@@ -564,7 +580,7 @@
     background: linear-gradient(135deg, #F8F0FF, #FFF0F8, #F0F8FF);
     padding: 20px;
     min-height: 100vh;
-    min-height: 100dvh;
+    min-height: 100svh;
     box-sizing: border-box;
   }
 
@@ -689,7 +705,7 @@
   /* CAKE */
   #page-cake {
     background: linear-gradient(135deg, #FFF8F0, #F0E0FF, #FFF0F8);
-    padding: 20px; min-height: 100vh;
+    padding: 20px; min-height: 100vh; min-height: 100svh;
   }
   .cake-video-wrap {
     max-width: 640px; margin: 0 auto 24px;
