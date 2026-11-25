@@ -359,6 +359,26 @@
   }
 
 
+  /* A consistent tiled collage keeps every photo positioned on all screen sizes. */
+  .photo-collage {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    overflow: hidden;
+  }
+  .photo-collage .collage-photo {
+    position: static;
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+  }
+  .photo-collage .collage-photo:nth-child(n+17) { display: none; }
+  @media (max-width: 768px) {
+    .photo-collage { grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(4, 1fr); }
+    .photo-collage .collage-photo:nth-child(n+9) { display: none; }
+  }
+
   #confetti-container {
     position: fixed; top: 0; left: 0;
     width: 100%; height: 100%;
@@ -1159,7 +1179,7 @@
 <div id="confetti-container"></div>
 <button id="music-toggle" title="Toggle music" onclick="toggleMusic()">🎵</button>
 <audio id="bg-music" loop preload="auto">
-  <source src="../Music.mp3" type="audio/mpeg">
+  <source src="Music.mp3" type="audio/mpeg">
 </audio>
 
 <!-- PAGE 1: HOME -->
@@ -1167,38 +1187,38 @@
   <!-- Photo Collage Background -->
   <div class="photo-collage">
     <!-- Use relative paths - photos should be in same folder as index.html -->
-    <img src="media/photo1.jpg" class="collage-photo" alt="Shristi photo 1">
-    <img src="media/photo2.jpg" class="collage-photo" alt="Shristi photo 2">
-    <img src="media/photo3.png" class="collage-photo" alt="Shristi photo 3">
-    <img src="media/photo4.jpg" class="collage-photo" alt="Shristi photo 4">
-    <img src="media/photo5.jpg" class="collage-photo" alt="Shristi photo 5">
-    <img src="media/photo6.jpg" class="collage-photo" alt="Shristi photo 6">
-    <img src="media/photo7.jpg" class="collage-photo" alt="Shristi photo 7">
-    <img src="media/photo1.jpg" class="collage-photo" alt="Shristi photo 8">
-    <img src="media/photo2.jpg" class="collage-photo" alt="Shristi photo 9">
-    <img src="media/photo3.png" class="collage-photo" alt="Shristi photo 10">
-    <img src="media/photo4.jpg" class="collage-photo" alt="Shristi photo 11">
-    <img src="media/photo5.jpg" class="collage-photo" alt="Shristi photo 12">
-    <img src="media/photo6.jpg" class="collage-photo" alt="Shristi photo 13">
-    <img src="media/photo7.jpg" class="collage-photo" alt="Shristi photo 14">
-    <img src="media/photo1.jpg" class="collage-photo" alt="Shristi photo 15">
-    <img src="media/photo2.jpg" class="collage-photo" alt="Shristi photo 16">
-    <img src="media/photo3.png" class="collage-photo" alt="Shristi photo 17">
-    <img src="media/photo4.jpg" class="collage-photo" alt="Shristi photo 18">
-    <img src="media/photo5.jpg" class="collage-photo" alt="Shristi photo 19">
-    <img src="media/photo6.jpg" class="collage-photo" alt="Shristi photo 20">
-    <img src="media/photo7.jpg" class="collage-photo" alt="Shristi photo 21">
-    <img src="media/photo1.jpg" class="collage-photo" alt="Shristi photo 22">
-    <img src="media/photo2.jpg" class="collage-photo" alt="Shristi photo 23">
-    <img src="media/photo3.png" class="collage-photo" alt="Shristi photo 24">
-    <img src="media/photo4.jpg" class="collage-photo" alt="Shristi photo 25">
-    <img src="media/photo5.jpg" class="collage-photo" alt="Shristi photo 26">
-    <img src="media/photo6.jpg" class="collage-photo" alt="Shristi photo 27">
-    <img src="media/photo7.jpg" class="collage-photo" alt="Shristi photo 28">
-    <img src="media/photo1.jpg" class="collage-photo" alt="Shristi photo 29">
-    <img src="media/photo2.jpg" class="collage-photo" alt="Shristi photo 30">
-    <img src="media/photo3.png" class="collage-photo" alt="Shristi photo 31">
-    <img src="media/photo4.jpg" class="collage-photo" alt="Shristi photo 32">
+    <img src="photo1.jpg" class="collage-photo" alt="Shristi photo 1">
+    <img src="photo2.jpg" class="collage-photo" alt="Shristi photo 2">
+    <img src="photo3.png" class="collage-photo" alt="Shristi photo 3">
+    <img src="photo4.jpg" class="collage-photo" alt="Shristi photo 4">
+    <img src="photo5.jpg" class="collage-photo" alt="Shristi photo 5">
+    <img src="photo6.jpg" class="collage-photo" alt="Shristi photo 6">
+    <img src="photo7.jpg" class="collage-photo" alt="Shristi photo 7">
+    <img src="photo1.jpg" class="collage-photo" alt="Shristi photo 8">
+    <img src="photo2.jpg" class="collage-photo" alt="Shristi photo 9">
+    <img src="photo3.png" class="collage-photo" alt="Shristi photo 10">
+    <img src="photo4.jpg" class="collage-photo" alt="Shristi photo 11">
+    <img src="photo5.jpg" class="collage-photo" alt="Shristi photo 12">
+    <img src="photo6.jpg" class="collage-photo" alt="Shristi photo 13">
+    <img src="photo7.jpg" class="collage-photo" alt="Shristi photo 14">
+    <img src="photo1.jpg" class="collage-photo" alt="Shristi photo 15">
+    <img src="photo2.jpg" class="collage-photo" alt="Shristi photo 16">
+    <img src="photo3.png" class="collage-photo" alt="Shristi photo 17">
+    <img src="photo4.jpg" class="collage-photo" alt="Shristi photo 18">
+    <img src="photo5.jpg" class="collage-photo" alt="Shristi photo 19">
+    <img src="photo6.jpg" class="collage-photo" alt="Shristi photo 20">
+    <img src="photo7.jpg" class="collage-photo" alt="Shristi photo 21">
+    <img src="photo1.jpg" class="collage-photo" alt="Shristi photo 22">
+    <img src="photo2.jpg" class="collage-photo" alt="Shristi photo 23">
+    <img src="photo3.png" class="collage-photo" alt="Shristi photo 24">
+    <img src="photo4.jpg" class="collage-photo" alt="Shristi photo 25">
+    <img src="photo5.jpg" class="collage-photo" alt="Shristi photo 26">
+    <img src="photo6.jpg" class="collage-photo" alt="Shristi photo 27">
+    <img src="photo7.jpg" class="collage-photo" alt="Shristi photo 28">
+    <img src="photo1.jpg" class="collage-photo" alt="Shristi photo 29">
+    <img src="photo2.jpg" class="collage-photo" alt="Shristi photo 30">
+    <img src="photo3.png" class="collage-photo" alt="Shristi photo 31">
+    <img src="photo4.jpg" class="collage-photo" alt="Shristi photo 32">
   </div>
   
   <div class="floral-field" style="height:clamp(56px,10vh,110px);margin-bottom:0;">
@@ -1320,9 +1340,9 @@
         onplay="pauseMusicForVideo()"
         onpause="resumeMusicAfterVideo()"
         onended="resumeMusicAfterVideo()"
-        poster="media/photo4.jpg"
+        poster="photo4.jpg"
         style="width:100%;border-radius:16px;display:block;">
-        <source src="../cake.mp4" type="video/mp4">
+        <source src="cake.mp4" type="video/mp4">
       </video>
     </div>
     <div class="cake-caption">🎉 Make a wish before you press play! 🎉</div>
@@ -1333,8 +1353,8 @@
 <!-- PAGE 4: VIDEO MESSAGE -->
 <div id="page-video" class="page">
   <div class="video-container">
-    <video id="special-video" autoplay muted loop playsinline poster="media/photo3.png">
-      <source src="../special.mp4" type="video/mp4">
+    <video id="special-video" autoplay muted loop playsinline poster="photo3.png">
+      <source src="special%20(1).mp4" type="video/mp4">
     </video>
     <div class="video-text">
       <h2>🎬 Special Birthday Message! 🎬</h2>
@@ -1348,19 +1368,20 @@ const audio = document.getElementById('bg-music');
 const btn   = document.getElementById('music-toggle');
 let musicOn = false;
 
-function goTo(pageId) {
+function goTo(pageId, addHistory = true) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   document.getElementById(pageId).classList.add('active');
   window.scrollTo(0, 0);
-  history.pushState({ page: pageId }, '', '');
+  if (addHistory) history.pushState({ page: pageId }, '', '');
 }
 
-window.addEventListener('popstate', function() {
-  const active = document.querySelector('.page.active');
-  if (active && active.id !== 'page-home') {
-    stopVideo();
-    goTo('page-home');
-  }
+history.replaceState({ page: 'page-home' }, '', '');
+window.addEventListener('popstate', function(event) {
+  stopVideo();
+  closePreview();
+  closeModal();
+  closeMusicPopup();
+  goTo(event.state?.page || 'page-home', false);
 });
 
 function playMusic() {
@@ -1381,10 +1402,10 @@ function toggleMusic() {
 }
 
 function onFirstInteraction(e) {
-  if (e.target.id === 'music-toggle') return;
+  if (e.target.closest('#music-toggle, video')) return;
   document.removeEventListener('click',      onFirstInteraction);
   document.removeEventListener('touchstart', onFirstInteraction);
-  setTimeout(() => playMusic(), 100);
+  playMusic();
 }
 document.addEventListener('click',      onFirstInteraction);
 document.addEventListener('touchstart', onFirstInteraction, { passive: true });
@@ -1426,7 +1447,7 @@ function launchConfetti(count) {
 
 const giftData = {
   panipuri: {
-    img: '../gift_panipuri.jpg',
+    img: 'gift_panipuri.jpg',
     emoji: '🫙',
     title: 'Pani Puri Coupon 🫙',
     msg: 'Kyunki kuch cheezein sirf tumhare jaisi hoti hain — chatak, teekhi, aur ekdum perfect! 😄',
@@ -1442,7 +1463,7 @@ const giftData = {
     ]
   },
   rasmalai: {
-    img: '../gift_rasmalai.jpg',
+    img: 'gift_rasmalai.jpg',
     emoji: '🍮',
     title: 'Rasmalai Coupon 🍮',
     msg: 'Meetha toh hoti hi ho tum, par yeh rasmalai tumse bhi zyada meethi hai — almost. 💜',
@@ -1458,7 +1479,7 @@ const giftData = {
     ]
   },
   chocolate: {
-    img: '../gift_chocolate.jpg',
+    img: 'gift_chocolate.jpg',
     emoji: '🍫',
     title: 'Chocolate Coupon 🍫',
     msg: 'Kyunki zindagi mein kuch cheezein guaranteed honi chahiye — tumhari khushi aur chocolate. 🍫',
@@ -1475,14 +1496,14 @@ const giftData = {
   },
 
   flowers: {
-    img: '../gift_flowers.jpg',
+    img: 'gift_flowers.jpg',
     emoji: '💐',
     title: 'Flower Bouquet 💐',
     msg: 'Tumhare liye phool — kyunki tum khud ek garden ho, beautiful aur full of life. 🌸 💜'
   },
 
   coffee: {
-    img: '../gift_coffee.jpg',
+    img: 'gift_coffee.jpg',
     emoji: '☕',
     title: 'Coffee Coupon ☕',
     msg: 'Ek cozy coffee treat, tumhare naam — kyunki birthday girl ko caffeine ka poora haq hai! ☕💜',
@@ -1503,7 +1524,7 @@ const giftData = {
     emoji: '🎬',
     title: 'A Special Video 🎬',
     msg: 'A heartwarming message just for you! 💝',
-    video: '../special.mp4',
+    video: 'special%20(1).mp4',
     videoType: 'local'
   }
 };
@@ -1603,7 +1624,13 @@ function openGiftModal(key) {
     msg.textContent = d.msg || 'Something special just for you 💜';
 
   } else if (d.img) {
-    media.innerHTML = `<div class="modal-img-wrap"><img src="${d.img}" alt="${d.title}" onerror="this.parentNode.innerHTML='<div class=\\'modal-emoji-fallback\\'>${d.emoji}</div>'"><div class="modal-emoji-fallback" style="display:none">${d.emoji}</div></div>`;
+    media.innerHTML = `<div class="modal-img-wrap"><img src="${d.img}" alt="${d.title}"></div>`;
+    media.querySelector('img').addEventListener('error', function() {
+      const fallback = document.createElement('div');
+      fallback.className = 'modal-emoji-fallback';
+      fallback.textContent = d.emoji;
+      this.replaceWith(fallback);
+    });
     msg.textContent = d.msg || '';
 
   } else {
