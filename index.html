@@ -1178,7 +1178,7 @@
 
 <div id="confetti-container"></div>
 <button id="music-toggle" title="Toggle music" onclick="toggleMusic()">🎵</button>
-<audio id="bg-music" loop preload="auto">
+<audio id="bg-music" loop preload="auto" autoplay>
   <source src="Music.mp3" type="audio/mpeg">
 </audio>
 
@@ -1384,10 +1384,18 @@ window.addEventListener('popstate', function(event) {
   goTo(event.state?.page || 'page-home', false);
 });
 
+function removeAutoplayListeners() {
+  document.removeEventListener('click',      onFirstInteraction);
+  document.removeEventListener('touchstart', onFirstInteraction);
+  document.removeEventListener('keydown',    onFirstInteraction);
+  document.removeEventListener('pointerdown', onFirstInteraction);
+}
+
 function playMusic() {
-  audio.play().then(() => {
+  return audio.play().then(() => {
     musicOn = true;
     btn.textContent = '🔇';
+    removeAutoplayListeners();
   }).catch(() => {});
 }
 
@@ -1403,12 +1411,18 @@ function toggleMusic() {
 
 function onFirstInteraction(e) {
   if (e.target.closest('#music-toggle, video')) return;
-  document.removeEventListener('click',      onFirstInteraction);
-  document.removeEventListener('touchstart', onFirstInteraction);
   playMusic();
 }
-document.addEventListener('click',      onFirstInteraction);
-document.addEventListener('touchstart', onFirstInteraction, { passive: true });
+document.addEventListener('click',       onFirstInteraction);
+document.addEventListener('touchstart',  onFirstInteraction, { passive: true });
+document.addEventListener('keydown',     onFirstInteraction);
+document.addEventListener('pointerdown', onFirstInteraction);
+
+// Attempt autoplay on load; browsers may block unmuted autoplay until a user gesture,
+// in which case the first-interaction listeners above will start playback.
+window.addEventListener('load', () => { playMusic(); });
+document.addEventListener('DOMContentLoaded', () => { playMusic(); });
+playMusic();
 
 function stopVideo() {
   const v = document.getElementById('cake-video');
@@ -1450,7 +1464,7 @@ const giftData = {
     img: 'gift_panipuri.jpg',
     emoji: '🫙',
     title: 'Pani Puri Coupon 🫙',
-    msg: 'Kyunki kuch cheezein sirf tumhare jaisi hoti hain — chatak, teekhi, aur ekdum perfect! 😄',
+    msg: 'Kyunki kuch cheezein sirf aapke jaisi hoti hain — chatak, teekhi, aur ekdum perfect! 😄',
     coupon: 'SHRISTIPURIYAN',
     expiry: '26th November 2027 (haan, ek saal baad bhi valid hai, kyunki hum generous hain)',
     item: 'ek plate chatpati pani puri',
@@ -1499,14 +1513,14 @@ const giftData = {
     img: 'gift_flowers.jpg',
     emoji: '💐',
     title: 'Flower Bouquet 💐',
-    msg: 'Tumhare liye phool — kyunki tum khud ek garden ho, beautiful aur full of life. 🌸 💜'
+    msg: 'Aapke liye phool — kyunki tum khud ek garden ho, beautiful aur full of life. 🌸 💜'
   },
 
   coffee: {
     img: 'gift_coffee.jpg',
     emoji: '☕',
     title: 'Coffee Coupon ☕',
-    msg: 'Ek cozy coffee treat, tumhare naam — kyunki birthday girl ko caffeine ka poora haq hai! ☕💜',
+    msg: 'Ek cozy coffee treat, aapke naam — kyunki birthday girl ko caffeine ka poora haq hai! ☕💜',
     coupon: 'SHRISTICOFFEE',
     expiry: '26th November 2027 (coffee ki tarah strong guarantee — kabhi expire hone ka plan nahi)',
     item: 'ek cup perfectly brewed coffee (cappuccino, latte, cold coffee — bilkul tumhari marzi!)',
@@ -1820,7 +1834,7 @@ window.addEventListener('load', startFlowerSnowOnFirstPage);
     <div class="music-popup-icon">?HTML</div>
     <div class="music-popup-title">Special Message Inside!</div>
     <div class="music-popup-msg">
-      Ek special message hai tumhare liye ?<br>
+      Ek special message hai aapke liye ?<br>
       Background music pause karein?
     </div>
     <div class="music-popup-btns">
